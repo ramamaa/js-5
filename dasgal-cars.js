@@ -238,25 +238,58 @@ function sortByPriceAscending(cars) {
 
 // 16. Engine size нь 2.0-аас их машинуудыг буцаадаг функц бич.
 function getLargeEngineCars(cars) {
-  // ...
+  let filtered = cars.filter((car)=>{
+    if (car.engineSize>2) {
+      return cars;
+    }
+  })
+  return filtered;
 }
+console.log("16 engineSize 2.0-s ih cars",getLargeEngineCars(cars));
+
 
 // 17. Давхардалгүй брэндийн нэрсийг массив болгон буцаадаг функц бич.
-function getUniqueBrands(cars) {
-  // ...
+const getUniqueBrands= (cars) => {
+  const Brands = cars.map(car=>{
+    return car.brand;
+  });
+  const uniqueBrands = {};
+  Brands.forEach((Brands)=>{
+    uniqueBrands[Brands] = true;
+  });
+  const keysOfUniqueBrands = Object.keys(uniqueBrands);
+  return keysOfUniqueBrands;
 }
+let resultUniqueBrands = getUniqueBrands(cars);
+console.log("17 unique", resultUniqueBrands);
+
 
 // 18. Зөвхөн model ба year талбартай шинэ массив үүсгэдэг функц бич.
 function getModelAndYearList(cars) {
-  // ...
+ let modelAndYear = cars.map((car)=>{
+  return {model: car.model, year: car.year}
+ })
+ return modelAndYear
 }
+console.log("18. Model and Year", getModelAndYearList(cars));
 
 // 19. 4.0-с бага fuel efficiency-тай машинуудыг "super efficient" гэж тэмдэглэдэг функц бич.
 function tagSuperEfficientCars(cars) {
-  // ...
+  cars.map((car)=>{
+    if (car.fuelEfficiency <4){
+      car.tag = "super efficient"
+    }
+  });
+  return cars;
 }
+console.log("19. add tag Super efficient", tagSuperEfficientCars(cars));
+
 
 // 20. Бүх машинд `id` талбар нэмдэг функц бич (1-с эхэлнэ).
 function addIdToCars(cars) {
-  // ...
+  let addID = cars.map((car, i)=>{
+    return ({...car, Id: i+1})
+  })
+  return addID;
 }
+console.log("20. add Id to Cars",addIdToCars(cars));

@@ -250,14 +250,31 @@ let LowStockProducts = getLowStockProducts(data);
 console.log("16. Low Stock Products", LowStockProducts);
 
 // 17. Давхардалгүй нийлүүлэгчийн нэрсийн массив буцаадаг функц бич.
-function getUniqueSuppliers(products) {
-  // ...
-}
+
+const getUniqueSuppliers = (products) => {
+  const suppliers = products.map((product) => {
+    return product.supplier;
+  });
+  const uniqueSuppliers = {};
+  suppliers.forEach((supplier) => {
+    uniqueSuppliers[supplier] = true;
+  });
+  const keysOfUniqueSuppliers = Object.keys(uniqueSuppliers);
+  return keysOfUniqueSuppliers;
+};
+let resultUniqueSuppliers = getUniqueSuppliers(data);
+console.log("17 Unique ", resultUniqueSuppliers);
 
 // 18. Зөвхөн name ба price талбартай шинэ массив үүсгэдэг функц бич.
 function getNameAndPriceList(products) {
-  // ...
+  let nameAndPrice = products.map((product)=>{
+    return {name: product.name, price: product.price}
+  })
+  return nameAndPrice;
 }
+let nameAndPrice = getNameAndPriceList(data);
+console.log("18 name and price list", nameAndPrice);
+
 
 // 19. Үнэлгээ нь 4.5-аас их бүх бүтээгдэхүүнүүдийг буцаадаг функц бич.
 function getHighlyRatedProducts(products) {
@@ -273,5 +290,9 @@ console.log("19. High Rated Products", HighRated);
 
 // 20. Бүх бүтээгдэхүүнд `id` талбар нэмж өгдөг функц бич (жишээ нь 1, 2, 3...).
 function addIdToProducts(products) {
-  // ...
+ let addID =  products.map((product, i)=>{
+    return ({ ...product, Id: i+1 }) 
+  })
+  return addID;
 }
+console.log("20. add ID to Products",addIdToProducts(data));
