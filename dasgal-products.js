@@ -293,6 +293,6 @@ function addIdToProducts(products) {
  let addID =  products.map((product, i)=>{
     return ({ ...product, Id: i+1 }) 
   })
-  return addID;
+  return addID; 
 }
 console.log("20. add ID to Products",addIdToProducts(data));

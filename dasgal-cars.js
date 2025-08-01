@@ -233,7 +233,9 @@ console.log("14. ModelName array", ModelName);
 
 // 15. Машинуудыг үнийн өсөхөөр эрэмбэлж буцаадаг функц бич.
 function sortByPriceAscending(cars) {
-  // ...
+  let sortByPrice = cars.sort((car)=>{
+    
+  })
 }
 
 // 16. Engine size нь 2.0-аас их машинуудыг буцаадаг функц бич.
